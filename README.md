@@ -1,4 +1,4 @@
-# vue-todo-app
+# Vue.js 기반 할 일 어플리케이션
 
 > Do it! 예제로 이해하고 실전 프로젝트로 완성한다 Vue.js 입문
 

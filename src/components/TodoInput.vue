@@ -2,7 +2,6 @@
   <div class="inputBox shadow">
     <input type="text" v-model="newTodoItem" placeholder="Type what you have to do" v-on:keyup.enter="addTodo">
     <span class="addContainer" v-on:click="addTodo">
-      <!-- awesome 아이콘 (+) 추가 -->
       <i class="addBtn fas fa-plus" aria-hidden="true"></i>
     </span>
   </div>
@@ -10,20 +9,20 @@
 
 <script>
 export default {
-  data() {
+  data: function() {
     return {
       newTodoItem: '' // input box 입력값
     }
   },
   methods: {
-    addTodo() {
-      if (this.newTodoItem !== "") { // 입력값이 있는 경우, 저장
-        var value = this.newTodoItem && this.newTodoItem.trim(); // 텍스트 앞뒤 공백 제거
-        localStorage.setItem(value, value);
+    // 하위 컴포넌트 -> 상위 컴포넌트 (TodoInput.vue -> App.vue)
+    addTodo: function() {
+      if (this.newTodoItem !== '') { // 입력값이 있는 경우, 저장
+        this.$emit('addTodoItem', this.newTodoItem) // 상위 컴포넌트로 데이터 전달 (App.vue)
         this.clearInput(); // input box 입력값 초기화
       }
     },
-    clearInput() {
+    clearInput: function () {
       this.newTodoItem = '';
     }
   }

@@ -7,9 +7,9 @@
 <script>
 export default {
   methods: {
-    // 로컬 스토리지 데이터 전체 삭제
+    // 할 일 지우기 - 하위 컴포넌트 -> 상위 컴포넌트 (TodoFooter.vue -> App.vue)
     clearTodo() {
-      localStorage.clear();
+      this.$emit('clearAll');
     }
   }
 }
